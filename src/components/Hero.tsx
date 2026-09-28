@@ -3,6 +3,7 @@ import { ArrowRight, Wrench, ShieldCheck, MapPin, Clock, PhoneCall, Gauge, Zap }
 import { motion } from 'motion/react';
 import { WORKSHOP_INFO } from '../data/workshopData';
 import { getShopStatus } from '../utils/timeHelper';
+import heroBgImage from '../assets/images/hero_light_atelier_1790589450987.jpg';
 
 interface HeroProps {
   lang: 'en' | 'el';
@@ -17,7 +18,7 @@ export const Hero: React.FC<HeroProps> = ({ lang, onOpenBooking }) => {
       {/* Background Image with Cinematic Scrim */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/src/assets/images/hero_light_atelier_1790589450987.jpg"
+          src={heroBgImage}
           alt="Moto Toulis Light Premium Motorcycle Atelier in Limassol"
           className="w-full h-full object-cover object-center opacity-75 filter contrast-105 scale-102 transition-transform duration-1000"
           referrerPolicy="no-referrer"

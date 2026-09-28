@@ -1,3 +1,8 @@
+import superbikeImg from '../assets/images/project_superbike_engine_1790583592008.jpg';
+import adventureImg from '../assets/images/project_adventure_suspension_1790583615552.jpg';
+import restomodImg from '../assets/images/project_custom_restomod_1790583603491.jpg';
+import tmaxImg from '../assets/images/hero_motorcycle_workshop_1790583579120.jpg';
+
 export interface ServiceItem {
   id: string;
   titleEn: string;
@@ -292,7 +297,7 @@ export const RECENT_PROJECTS: ProjectItem[] = [
     bikeModel: 'Yamaha YZF-R1M (Crossplane CP4)',
     year: 2021,
     engineDisplacement: '998cc',
-    image: '/src/assets/images/project_superbike_engine_1790583592008.jpg',
+    image: superbikeImg,
     beforeNotesEn: 'Arrived with noisy valve train, rough idle hunting between 1,100–1,500 rpm, and reduced top-end pull at track revs.',
     beforeNotesEl: 'Ήρθε στο συνεργείο με θόρυβο στις βαλβίδες, ασταθές ρελαντί 1.100–1.500 σ.α.λ. και απώλεια δύναμης στις υψηλές στροφές.',
     afterNotesEn: 'Rock-steady 1,250 rpm idle, 13.8 bar compression across all four cylinders, and razor-sharp throttle transition with zero valvetrain chatter.',
@@ -340,7 +345,7 @@ export const RECENT_PROJECTS: ProjectItem[] = [
     bikeModel: 'BMW R 1250 GS Adventure',
     year: 2020,
     engineDisplacement: '1254cc ShiftCam',
-    image: '/src/assets/images/project_adventure_suspension_1790583615552.jpg',
+    image: adventureImg,
     beforeNotesEn: 'Front Telelever fork weeping hydraulic fluid onto brake calipers; excessive front-end dive and sluggish rebound over Limassol rough asphalt.',
     beforeNotesEl: 'Διαρροή λαδιού από τα καλάμια πάνω στις δαγκάνες, υπερβολικό βύθισμα στο φρενάρισμα και αργή απόσβεση στις ανωμαλίες του δρόμου.',
     afterNotesEn: 'Pristine dry stanchions, zero brake contamination, plush high-speed bump absorption with firm, stable braking posture.',
@@ -388,7 +393,7 @@ export const RECENT_PROJECTS: ProjectItem[] = [
     bikeModel: 'Ducati Monster 900 Special',
     year: 1999,
     engineDisplacement: '904cc Desmodromic L-Twin',
-    image: '/src/assets/images/project_custom_restomod_1790583603491.jpg',
+    image: restomodImg,
     beforeNotesEn: 'Classic carb-fed Monster stored for 4 years with clogged carburetors, perished belts, dry-rotted electrical loom, and corroded exhaust.',
     beforeNotesEl: 'Κλασικό καρμπυρατεράτο Monster παρατημένο 4 χρόνια με βουλωμένα καρμπυρατέρ, ξεραμένους ιμάντες και φθαρμένη καλωδίωση.',
     afterNotesEn: 'Sensational deep rumble, crisp instantaneous carb throttle response, reliable modernized digital electricals, and head-turning retro-modern stance.',
@@ -436,7 +441,7 @@ export const RECENT_PROJECTS: ProjectItem[] = [
     bikeModel: 'Yamaha T-MAX 560 Tech Max',
     year: 2022,
     engineDisplacement: '562cc Twin',
-    image: '/src/assets/images/hero_motorcycle_workshop_1790583579120.jpg',
+    image: tmaxImg,
     beforeNotesEn: 'Sluggish takeoff off the line in Limassol urban traffic, transmission vibration at 40 km/h, and due for major 20,000 km inspection.',
     beforeNotesEl: 'Νωθρή εκκίνηση στα φανάρια στη Λεμεσό, κραδασμοί στη μετάδοση στα 40 χλμ/ώρα και ανάγκη για μεγάλο προγραμματισμένο σέρβις 20.000 χλμ.',
     afterNotesEn: 'Explosive acceleration from 0-100 km/h, linear pull through the entire powerband, zero belt chatter, and silky smooth clutch engagement.',
