@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { ServicesSection } from './components/ServicesSection';
+import { AnimatedMechanicalShowcase } from './components/AnimatedMechanicalShowcase';
 import { ProjectsGallery } from './components/ProjectsGallery';
 import { CostEstimator } from './components/CostEstimator';
 import { WorkshopSpecs } from './components/WorkshopSpecs';
@@ -14,10 +15,13 @@ import { ReviewsSection } from './components/ReviewsSection';
 import { LocationHours } from './components/LocationHours';
 import { Footer } from './components/Footer';
 import { BookingModal } from './components/BookingModal';
+import { GeminiChatbot } from './components/GeminiChatbot';
+import { MessageSquare, Bot } from 'lucide-react';
 
 export default function App() {
   const [lang, setLang] = useState<'en' | 'el'>('en');
   const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [isChatOpen, setIsChatOpen] = useState(false);
   const [bookingServiceId, setBookingServiceId] = useState<string | undefined>(undefined);
   const [bookingBikeModel, setBookingBikeModel] = useState<string | undefined>(undefined);
   const [bookingEstimates, setBookingEstimates] = useState<{
@@ -45,7 +49,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-neutral-950 text-neutral-100 flex flex-col font-sans selection:bg-amber-500 selection:text-neutral-950">
+    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans selection:bg-amber-500 selection:text-neutral-950">
       {/* Top Navigation Bar adhering to 3-zone contract */}
       <Header
         lang={lang}
@@ -67,34 +71,52 @@ export default function App() {
           onBookService={(serviceId) => handleOpenBooking(serviceId)}
         />
 
-        {/* 3. Recent Projects Gallery with Before/After Diagnostics & Specs */}
+        {/* 3. Interactive Animated Mechanical Assemblies & Motorcycle Blueprint */}
+        <AnimatedMechanicalShowcase
+          lang={lang}
+          onBookService={(serviceId) => handleOpenBooking(serviceId)}
+        />
+
+        {/* 4. Recent Projects Gallery with Before/After Diagnostics & Specs */}
         <ProjectsGallery
           lang={lang}
           onBookServiceForBike={(bike) => handleOpenBooking(undefined, bike)}
         />
 
-        {/* 4. Interactive Transparent Cost Estimator */}
+        {/* 5. Interactive Transparent Cost Estimator */}
         <CostEstimator
           lang={lang}
           onBookWithEstimates={handleOpenBookingWithEstimates}
         />
 
-        {/* 5. Tooling, Diagnostics & Hygiene Standards */}
+        {/* 6. Tooling, Diagnostics & Hygiene Standards */}
         <WorkshopSpecs
           lang={lang}
         />
 
-        {/* 6. Rider Proof, Testimonials & FAQs */}
+        {/* 7. Rider Proof, Testimonials & FAQs */}
         <ReviewsSection
           lang={lang}
         />
 
-        {/* 7. Location, Live Open/Closed Status, Interactive Map & Direct Call Lines */}
+        {/* 8. Location, Live Open/Closed Status, Interactive Map & Direct Call Lines */}
         <LocationHours
           lang={lang}
           onOpenBooking={() => handleOpenBooking()}
         />
       </main>
+
+      {/* Floating AI Mechanical Advisor Trigger */}
+      <button
+        type="button"
+        onClick={() => setIsChatOpen(true)}
+        className="fixed bottom-6 right-6 z-40 flex items-center gap-2.5 px-4 py-3 bg-amber-500 hover:bg-amber-400 text-neutral-950 rounded-full shadow-2xl shadow-amber-500/30 transition-all hover:scale-105 cursor-pointer font-bold text-xs uppercase tracking-wider"
+        aria-label="Open Gemini Diagnostic Assistant"
+      >
+        <Bot className="w-4 h-4" />
+        <span>{lang === 'en' ? 'Ask AI Mechanic' : 'Μηχανικός AI'}</span>
+        <span className="w-2 h-2 rounded-full bg-neutral-950 animate-ping" />
+      </button>
 
       {/* Clean quiet footer */}
       <Footer lang={lang} />
@@ -107,6 +129,14 @@ export default function App() {
         initialServiceId={bookingServiceId}
         initialBikeModel={bookingBikeModel}
         initialEstimates={bookingEstimates}
+      />
+
+      {/* Multi-turn Gemini AI Chatbot */}
+      <GeminiChatbot
+        isOpen={isChatOpen}
+        onClose={() => setIsChatOpen(false)}
+        onOpenBooking={() => handleOpenBooking()}
+        lang={lang}
       />
     </div>
   );

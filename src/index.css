@@ -9,8 +9,16 @@
 
   body {
     font-family: var(--font-body);
-    background-color: #0a0a0a;
-    color: #f5f5f5;
+    background-color: #fafbfd;
+    color: #0f172a;
+    background-image: 
+      radial-gradient(ellipse 70% 40% at 50% -5%, rgba(217, 119, 6, 0.07), transparent),
+      radial-gradient(ellipse 60% 30% at 85% 45%, rgba(245, 158, 11, 0.04), transparent),
+      radial-gradient(ellipse 50% 30% at 15% 75%, rgba(14, 165, 233, 0.03), transparent),
+      linear-gradient(rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 100% 100%, 32px 32px, 32px 32px;
+    background-attachment: fixed;
   }
 
   h1, h2, h3, h4, .font-display {
@@ -19,18 +27,121 @@
   }
 }
 
-/* Custom scrollbar */
+/* Light Premium Atelier Background Patterns */
+.bg-light-atelier {
+  background-color: #ffffff;
+  background-image: 
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(245, 158, 11, 0.05), transparent),
+    linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.bg-cad-grid {
+  background-image: 
+    radial-gradient(rgba(148, 163, 184, 0.25) 1px, transparent 1px),
+    linear-gradient(rgba(203, 213, 225, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(203, 213, 225, 0.15) 1px, transparent 1px);
+  background-size: 16px 16px, 64px 64px, 64px 64px;
+}
+
+.bg-brushed-light {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
+}
+
+/* Mechanical Keyframe Animations */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-reverse-slow {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes piston-reciprocate {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-40px);
+  }
+}
+
+@keyframes spark-flash {
+  0%, 48%, 54%, 100% {
+    opacity: 0.1;
+    filter: drop-shadow(0 0 0px transparent);
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 12px #f59e0b) drop-shadow(0 0 24px #ef4444);
+  }
+}
+
+@keyframes shock-stroke {
+  0%, 100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.85);
+  }
+}
+
+@keyframes ambient-glow {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(1.08);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 16s linear infinite;
+}
+
+.animate-spin-reverse-slow {
+  animation: spin-reverse-slow 20s linear infinite;
+}
+
+.animate-piston {
+  animation: piston-reciprocate 1.2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+.animate-spark {
+  animation: spark-flash 1.2s ease-in-out infinite;
+}
+
+.animate-shock {
+  animation: shock-stroke 1.8s ease-in-out infinite;
+}
+
+.animate-ambient-glow {
+  animation: ambient-glow 8s ease-in-out infinite;
+}
+
+/* Custom scrollbar for Light Theme */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #121212;
+  background: #f1f5f9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #2a2a2a;
+  background: #cbd5e1;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3f3f46;
+  background: #d97706;
 }

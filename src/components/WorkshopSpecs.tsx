@@ -52,16 +52,16 @@ export const WorkshopSpecs: React.FC<WorkshopSpecsProps> = ({ lang }) => {
   ];
 
   return (
-    <section id="workshop" className="py-24 bg-neutral-900/30 border-t border-neutral-800/80">
+    <section id="workshop" className="py-24 bg-slate-50/70 border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mb-12">
-          <div className="text-xs font-mono uppercase tracking-widest text-amber-500 mb-2">
+          <div className="text-xs font-mono uppercase tracking-widest text-amber-600 mb-2 font-bold">
             {lang === 'en' ? 'Standards & Equipment' : 'Εξοπλισμός & Πρότυπα'}
           </div>
-          <h2 className="text-3xl sm:text-5xl font-display font-extrabold uppercase tracking-tight text-white mb-3">
+          <h2 className="text-3xl sm:text-5xl font-display font-extrabold uppercase tracking-tight text-slate-950 mb-3">
             {lang === 'en' ? 'Workshop Diagnostics & Tooling' : 'Εξειδικευμένος Εξοπλισμός Συνεργείου'}
           </h2>
-          <p className="text-base text-neutral-400">
+          <p className="text-base text-slate-600">
             {lang === 'en'
               ? 'Modern superbikes and complex electronic injection systems demand high-precision tooling. We invest continuously in calibrated instruments to safeguard your motorcycle.'
               : 'Οι σύγχρονες μοτοσυκλέτες απαιτούν εργαλεία υψηλής ακρίβειας. Επενδύουμε συνεχώς σε διαγνωστικά μηχανήματα για να διασφαλίζουμε το καλύτερο αποτέλεσμα.'}
@@ -74,15 +74,15 @@ export const WorkshopSpecs: React.FC<WorkshopSpecsProps> = ({ lang }) => {
             return (
               <div
                 key={index}
-                className="p-6 rounded-xl bg-neutral-950 border border-neutral-800/90 hover:border-neutral-700 transition-colors"
+                className="p-6 rounded-2xl bg-white border border-slate-200 hover:border-amber-500/60 shadow-xs hover:shadow-md transition-all"
               >
-                <div className="w-10 h-10 rounded-lg bg-neutral-900 border border-neutral-800 flex items-center justify-center text-amber-500 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-600 mb-4">
                   <Icon className="w-5 h-5" />
                 </div>
-                <h3 className="text-lg font-display font-bold uppercase text-white mb-2">
+                <h3 className="text-lg font-display font-extrabold uppercase text-slate-950 mb-2">
                   {lang === 'en' ? item.titleEn : item.titleEl}
                 </h3>
-                <p className="text-xs text-neutral-300 leading-relaxed">
+                <p className="text-xs text-slate-600 leading-relaxed font-normal">
                   {lang === 'en' ? item.descEn : item.descEl}
                 </p>
               </div>

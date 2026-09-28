@@ -12,18 +12,18 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
   };
 
   return (
-    <footer className="bg-neutral-950 border-t border-neutral-800 text-neutral-400 py-16">
+    <footer className="bg-slate-100/90 border-t border-slate-200 text-slate-600 py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-neutral-900">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-slate-200">
           {/* Col 1: Wordmark & Bio (5 cols) */}
           <div className="md:col-span-5 space-y-4">
             <a
               href="#"
-              className="text-2xl font-display font-extrabold tracking-wider text-white hover:text-amber-500 transition-colors uppercase inline-block"
+              className="text-2xl font-display font-extrabold tracking-wider text-slate-950 hover:text-amber-600 transition-colors uppercase inline-block"
             >
               Moto Toulis
             </a>
-            <p className="text-xs text-neutral-400 max-w-sm leading-relaxed">
+            <p className="text-xs text-slate-600 max-w-sm leading-relaxed font-normal">
               {lang === 'en'
                 ? 'Independent specialized motorcycle mechanic and custom performance workshop in Limassol, Cyprus. Diagnostics, engine overhauls, suspension rebuilding, and factory-spec maintenance.'
                 : 'Ανεξάρτητο εξειδικευμένο συνεργείο μοτοσυκλετών και μηχανολογικών επισκευών στη Λεμεσό. Διαγνωστικά, ανακατασκευές κινητήρων, ρύθμιση αναρτήσεων και τακτική συντήρηση.'}
@@ -33,44 +33,49 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
                 href={WORKSHOP_INFO.facebookUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-neutral-300 hover:text-white border border-neutral-800 transition-colors inline-flex items-center gap-2 text-xs"
+                className="p-2 rounded-lg bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-950 border border-slate-200 transition-colors inline-flex items-center gap-2 text-xs shadow-xs"
                 aria-label="Visit Facebook Page"
               >
-                <MessageSquare className="w-4 h-4 text-blue-400" />
+                <MessageSquare className="w-4 h-4 text-blue-600" />
                 <span>facebook.com/mototoulis</span>
-                <ExternalLink className="w-3 h-3 text-neutral-500" />
+                <ExternalLink className="w-3 h-3 text-slate-400" />
               </a>
             </div>
           </div>
 
           {/* Col 2: Navigation (3 cols) */}
           <div className="md:col-span-3 space-y-3">
-            <h3 className="text-xs font-mono uppercase tracking-wider text-neutral-200">
+            <h3 className="text-xs font-mono uppercase tracking-wider text-slate-900 font-bold">
               {lang === 'en' ? 'Quick Links' : 'Γρήγορη Πλοήγηση'}
             </h3>
-            <ul className="space-y-2 text-xs">
+            <ul className="space-y-2 text-xs font-medium">
               <li>
-                <a href="#services" className="hover:text-amber-400 transition-colors">
+                <a href="#services" className="hover:text-amber-600 transition-colors">
                   {lang === 'en' ? 'Workshop Services' : 'Υπηρεσίες Συνεργείου'}
                 </a>
               </li>
               <li>
-                <a href="#projects" className="hover:text-amber-400 transition-colors">
+                <a href="#mechanical-lab" className="hover:text-amber-600 transition-colors">
+                  {lang === 'en' ? 'Mechanical Lab' : 'Εργαστήριο'}
+                </a>
+              </li>
+              <li>
+                <a href="#projects" className="hover:text-amber-600 transition-colors">
                   {lang === 'en' ? 'Recent Builds Gallery' : 'Πρόσφατα Έργα'}
                 </a>
               </li>
               <li>
-                <a href="#estimator" className="hover:text-amber-400 transition-colors">
+                <a href="#estimator" className="hover:text-amber-600 transition-colors">
                   {lang === 'en' ? 'Cost Estimator' : 'Υπολογισμός Κόστους'}
                 </a>
               </li>
               <li>
-                <a href="#workshop" className="hover:text-amber-400 transition-colors">
+                <a href="#workshop" className="hover:text-amber-600 transition-colors">
                   {lang === 'en' ? 'Equipment & Standards' : 'Εξοπλισμός & Πρότυπα'}
                 </a>
               </li>
               <li>
-                <a href="#contact" className="hover:text-amber-400 transition-colors">
+                <a href="#contact" className="hover:text-amber-600 transition-colors">
                   {lang === 'en' ? 'Location & Operating Hours' : 'Τοποθεσία & Ωράριο'}
                 </a>
               </li>
@@ -79,34 +84,34 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
 
           {/* Col 3: Workshop Contact (4 cols) */}
           <div className="md:col-span-4 space-y-3">
-            <h3 className="text-xs font-mono uppercase tracking-wider text-neutral-200">
+            <h3 className="text-xs font-mono uppercase tracking-wider text-slate-900 font-bold">
               {lang === 'en' ? 'Workshop Facility' : 'Στοιχεία Επικοινωνίας'}
             </h3>
             <div className="space-y-2 text-xs">
-              <div className="flex items-start gap-2">
-                <MapPin className="w-3.5 h-3.5 text-amber-500 shrink-0 mt-0.5" />
-                <span>{WORKSHOP_INFO.address}</span>
+              <div className="flex items-start gap-2 text-slate-700">
+                <MapPin className="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" />
+                <span className="font-medium">{WORKSHOP_INFO.address}</span>
               </div>
               <div className="flex items-center gap-2">
-                <Phone className="w-3.5 h-3.5 text-amber-500 shrink-0" />
-                <a href={`tel:${WORKSHOP_INFO.phoneGreekRaw}`} className="hover:text-amber-400 font-mono">
+                <Phone className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+                <a href={`tel:${WORKSHOP_INFO.phoneGreekRaw}`} className="hover:text-amber-600 font-mono text-slate-900 font-bold">
                   {WORKSHOP_INFO.phoneGreek}
                 </a>
-                <span className="text-neutral-500">(EL)</span>
+                <span className="text-slate-500">(EL)</span>
               </div>
               <div className="flex items-center gap-2">
-                <Phone className="w-3.5 h-3.5 text-amber-500 shrink-0" />
-                <a href={`tel:${WORKSHOP_INFO.phoneEnglishRaw}`} className="hover:text-amber-400 font-mono">
+                <Phone className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+                <a href={`tel:${WORKSHOP_INFO.phoneEnglishRaw}`} className="hover:text-amber-600 font-mono text-slate-800 font-semibold">
                   {WORKSHOP_INFO.phoneEnglish}
                 </a>
-                <span className="text-neutral-500">(EN)</span>
+                <span className="text-slate-500">(EN)</span>
               </div>
               <div className="pt-2">
                 <a
                   href={WORKSHOP_INFO.mapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-amber-400 hover:underline inline-flex items-center gap-1 font-medium"
+                  className="text-amber-600 hover:underline inline-flex items-center gap-1 font-bold"
                 >
                   <span>{lang === 'en' ? 'Find us on Google Maps' : 'Βρείτε μας στους Χάρτες Google'}</span>
                   <ExternalLink className="w-3 h-3" />
@@ -117,7 +122,7 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
         </div>
 
         {/* Quiet Sub-footer */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-neutral-400">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500 font-medium">
           <div>
             © {new Date().getFullYear()} Moto Toulis. {lang === 'en' ? 'All rights reserved.' : 'Με επιφύλαξη παντός δικαιώματος.'} Limassol, Cyprus.
           </div>
@@ -125,10 +130,10 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
           <button
             type="button"
             onClick={scrollToTop}
-            className="inline-flex items-center gap-1.5 text-neutral-400 hover:text-white transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 text-slate-600 hover:text-amber-600 transition-colors cursor-pointer"
           >
             <span>{lang === 'en' ? 'Back to Top' : 'Επιστροφή στην Κορυφή'}</span>
-            <ArrowUp className="w-3.5 h-3.5 text-amber-500" />
+            <ArrowUp className="w-3.5 h-3.5 text-amber-600" />
           </button>
         </div>
       </div>

@@ -173,17 +173,17 @@ export const CostEstimator: React.FC<CostEstimatorProps> = ({ lang, onBookWithEs
   };
 
   return (
-    <section id="estimator" className="py-24 bg-neutral-950 border-t border-neutral-800/80">
+    <section id="estimator" className="py-24 bg-white border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-12">
-          <div className="text-xs font-mono uppercase tracking-widest text-amber-500 mb-2">
+          <div className="text-xs font-mono uppercase tracking-widest text-amber-600 mb-2 font-bold">
             {lang === 'en' ? 'Transparent Workshop Pricing' : 'Διαφάνεια Τιμών'}
           </div>
-          <h2 className="text-3xl sm:text-5xl font-display font-extrabold uppercase tracking-tight text-white mb-3">
+          <h2 className="text-3xl sm:text-5xl font-display font-extrabold uppercase tracking-tight text-slate-950 mb-3">
             {lang === 'en' ? 'Interactive Service Estimator' : 'Υπολογισμός Κόστους Σέρβις'}
           </h2>
-          <p className="text-base text-neutral-400">
+          <p className="text-base text-slate-600">
             {lang === 'en'
               ? 'Select your motorcycle classification and desired mechanical procedures. Our guide estimate reflects genuine Motul fluids, OEM filtration, and calibrated workshop labor.'
               : 'Επιλέξτε την κατηγορία της μηχανής σας και τις εργασίες που επιθυμείτε για άμεση εκτίμηση κόστους με γνήσια ανταλλακτικά και πιστοποιημένη εργασία.'}
@@ -195,7 +195,7 @@ export const CostEstimator: React.FC<CostEstimatorProps> = ({ lang, onBookWithEs
           <div className="lg:col-span-8 space-y-8">
             {/* Step 1: Bike Category */}
             <div>
-              <label className="block text-xs font-mono uppercase tracking-wider text-neutral-400 mb-3">
+              <label className="block text-xs font-mono uppercase tracking-wider text-slate-700 font-bold mb-3">
                 {lang === 'en' ? '1. Select Motorcycle Platform' : '1. Επιλέξτε Κατηγορία Μοτοσυκλέτας'}
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -208,18 +208,18 @@ export const CostEstimator: React.FC<CostEstimatorProps> = ({ lang, onBookWithEs
                       onClick={() => setSelectedBikeType(bike.id)}
                       className={`text-left p-4 rounded-xl border transition-all cursor-pointer ${
                         isSelected
-                          ? 'bg-neutral-900 border-amber-500 shadow-sm'
-                          : 'bg-neutral-950 border-neutral-800 hover:border-neutral-700'
+                          ? 'bg-amber-500/10 border-amber-500 shadow-xs'
+                          : 'bg-slate-50 border-slate-200 hover:border-slate-300 hover:bg-slate-100/60'
                       }`}
                     >
                       <div className="flex items-center justify-between mb-1">
-                        <span className={`text-sm font-bold uppercase ${isSelected ? 'text-amber-400' : 'text-neutral-200'}`}>
+                        <span className={`text-sm font-bold uppercase ${isSelected ? 'text-amber-700' : 'text-slate-900'}`}>
                           {lang === 'en' ? bike.nameEn : bike.nameEl}
                         </span>
                         {isSelected && <span className="w-2 h-2 rounded-full bg-amber-500 shrink-0" />}
                       </div>
-                      <div className="text-xs text-neutral-400">{bike.example}</div>
-                      <div className="text-[11px] font-mono text-neutral-500 mt-1">
+                      <div className="text-xs text-slate-600 font-medium">{bike.example}</div>
+                      <div className="text-[11px] font-mono text-slate-500 mt-1">
                         {lang === 'en' ? `Oil Capacity: ~${bike.oilVolume}` : `Χωρητικότητα Λαδιού: ~${bike.oilVolume}`}
                       </div>
                     </button>
@@ -230,7 +230,7 @@ export const CostEstimator: React.FC<CostEstimatorProps> = ({ lang, onBookWithEs
 
             {/* Step 2: Desired Operations */}
             <div>
-              <label className="block text-xs font-mono uppercase tracking-wider text-neutral-400 mb-3">
+              <label className="block text-xs font-mono uppercase tracking-wider text-slate-700 font-bold mb-3">
                 {lang === 'en' ? '2. Choose Desired Services' : '2. Επιλέξτε Εργασίες'}
               </label>
               <div className="space-y-2.5">
@@ -245,8 +245,8 @@ export const CostEstimator: React.FC<CostEstimatorProps> = ({ lang, onBookWithEs
                       onClick={() => toggleService(opt.id)}
                       className={`flex items-center justify-between p-3.5 rounded-xl border transition-colors cursor-pointer ${
                         isChecked
-                          ? 'bg-neutral-900 border-amber-500/70 text-white'
-                          : 'bg-neutral-950 border-neutral-800/80 text-neutral-300 hover:border-neutral-700'
+                          ? 'bg-amber-50/70 border-amber-500/70 text-slate-950 shadow-xs'
+                          : 'bg-slate-50 border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-100/60'
                       }`}
                     >
                       <div className="flex items-center gap-3">
@@ -254,14 +254,14 @@ export const CostEstimator: React.FC<CostEstimatorProps> = ({ lang, onBookWithEs
                           type="checkbox"
                           checked={isChecked}
                           onChange={() => {}} // handled by parent div
-                          className="w-4 h-4 rounded border-neutral-700 bg-neutral-900 text-amber-500 focus:ring-0 cursor-pointer"
+                          className="w-4 h-4 rounded border-slate-300 text-amber-500 focus:ring-amber-400 cursor-pointer"
                         />
-                        <span className="text-sm font-medium">
+                        <span className="text-sm font-semibold">
                           {lang === 'en' ? opt.nameEn : opt.nameEl}
                         </span>
                       </div>
 
-                      <div className="text-xs font-mono tabular-nums text-neutral-400 shrink-0 ml-2">
+                      <div className="text-xs font-mono tabular-nums text-slate-700 font-bold shrink-0 ml-2">
                         €{optMin} – €{optMax}
                       </div>
                     </div>
@@ -272,41 +272,41 @@ export const CostEstimator: React.FC<CostEstimatorProps> = ({ lang, onBookWithEs
           </div>
 
           {/* Right Column: Dynamic Price Summary Box (4 cols) */}
-          <div className="lg:col-span-4 sticky top-28 bg-neutral-900 border border-neutral-800 rounded-2xl p-6 shadow-xl">
-            <div className="flex items-center gap-2 text-xs font-mono uppercase text-amber-500 tracking-wider mb-2">
+          <div className="lg:col-span-4 sticky top-28 bg-white border border-slate-200 rounded-2xl p-6 shadow-xl">
+            <div className="flex items-center gap-2 text-xs font-mono uppercase text-amber-600 font-bold tracking-wider mb-2">
               <Calculator className="w-4 h-4" />
               <span>{lang === 'en' ? 'Estimated Total' : 'Εκτιμώμενο Σύνολο'}</span>
             </div>
 
-            <div className="text-3xl sm:text-4xl font-display font-extrabold text-white font-mono tabular-nums mb-1">
+            <div className="text-3xl sm:text-4xl font-display font-extrabold text-slate-950 font-mono tabular-nums mb-1">
               €{calculatedMin} – €{calculatedMax}
             </div>
-            <div className="text-xs text-neutral-400 mb-6">
+            <div className="text-xs text-slate-500 mb-6 font-medium">
               {lang === 'en' ? 'Estimated Workshop Time: ~' : 'Εκτιμώμενος Χρόνος Εργασίας: ~'}
-              <span className="font-mono text-neutral-200">{calculatedHours.toFixed(1)} hrs</span>
+              <span className="font-mono text-slate-800 font-bold">{calculatedHours.toFixed(1)} hrs</span>
             </div>
 
             {/* Selected Breakdown */}
-            <div className="space-y-2 border-t border-b border-neutral-800 py-4 mb-6 text-xs text-neutral-300">
-              <div className="flex justify-between text-neutral-400">
+            <div className="space-y-2 border-t border-b border-slate-200 py-4 mb-6 text-xs text-slate-700">
+              <div className="flex justify-between text-slate-600">
                 <span>{lang === 'en' ? 'Platform:' : 'Κατηγορία:'}</span>
-                <span className="text-neutral-200 font-medium truncate max-w-[180px]">
+                <span className="text-slate-900 font-bold truncate max-w-[180px]">
                   {lang === 'en' ? currentBike.nameEn : currentBike.nameEl}
                 </span>
               </div>
-              <div className="flex justify-between text-neutral-400">
+              <div className="flex justify-between text-slate-600">
                 <span>{lang === 'en' ? 'Procedures Selected:' : 'Επιλεγμένες Εργασίες:'}</span>
-                <span className="text-amber-400 font-mono font-semibold">{selectedServices.length}</span>
+                <span className="text-amber-600 font-mono font-bold">{selectedServices.length}</span>
               </div>
-              <div className="flex justify-between text-neutral-400">
+              <div className="flex justify-between text-slate-600">
                 <span>{lang === 'en' ? 'Parts Specification:' : 'Προδιαγραφή Ανταλλακτικών:'}</span>
-                <span className="text-neutral-200">Motul & OEM Genuine</span>
+                <span className="text-slate-900 font-medium">Motul & OEM Genuine</span>
               </div>
             </div>
 
-            <div className="space-y-3 mb-6 text-xs text-neutral-400">
+            <div className="space-y-3 mb-6 text-xs text-slate-600">
               <div className="flex items-start gap-2">
-                <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                 <span>
                   {lang === 'en'
                     ? 'Includes complimentary 32-point chassis and tire pressure safety audit.'
@@ -314,7 +314,7 @@ export const CostEstimator: React.FC<CostEstimatorProps> = ({ lang, onBookWithEs
                 </span>
               </div>
               <div className="flex items-start gap-2">
-                <Clock className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                <Clock className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
                 <span>
                   {lang === 'en'
                     ? 'Same-day completion available for bookings before 11:00 AM.'
@@ -327,7 +327,7 @@ export const CostEstimator: React.FC<CostEstimatorProps> = ({ lang, onBookWithEs
               type="button"
               disabled={selectedServices.length === 0}
               onClick={handleCarryToBooking}
-              className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 text-xs font-bold uppercase tracking-wider text-neutral-950 bg-amber-500 hover:bg-amber-400 disabled:opacity-50 disabled:cursor-not-allowed rounded-lg transition-colors shadow-md cursor-pointer"
+              className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 text-xs font-bold uppercase tracking-wider text-slate-950 bg-amber-500 hover:bg-amber-400 disabled:opacity-50 disabled:cursor-not-allowed rounded-lg transition-colors shadow-md shadow-amber-500/20 cursor-pointer"
             >
               <span>{lang === 'en' ? 'Book with This Specification' : 'Κράτηση με Αυτή την Προσφορά'}</span>
               <ArrowRight className="w-4 h-4" />

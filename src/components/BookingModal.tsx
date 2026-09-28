@@ -130,17 +130,17 @@ export const BookingModal: React.FC<BookingModalProps> = ({
     <div
       role="dialog"
       aria-modal="true"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md overflow-y-auto"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm overflow-y-auto"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-2xl bg-neutral-950 border border-neutral-800 rounded-2xl p-6 sm:p-8 shadow-2xl my-8 text-neutral-100"
+        className="relative w-full max-w-2xl bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-2xl my-8 text-slate-900"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           type="button"
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 rounded-full bg-neutral-900 text-neutral-400 hover:text-white border border-neutral-800 transition-colors"
+          className="absolute top-4 right-4 p-2 rounded-full bg-slate-100 text-slate-500 hover:text-slate-900 hover:bg-slate-200 transition-colors cursor-pointer"
           aria-label="Close modal"
         >
           <X className="w-5 h-5" />
@@ -149,13 +149,13 @@ export const BookingModal: React.FC<BookingModalProps> = ({
         {!submitted ? (
           <div>
             <div className="mb-6">
-              <div className="text-xs font-mono uppercase tracking-wider text-amber-500 mb-1">
+              <div className="text-xs font-mono uppercase tracking-wider text-amber-600 mb-1 font-bold">
                 {lang === 'en' ? 'Workshop Booking Request' : 'Αίτημα Ραντεβού Συνεργείου'}
               </div>
-              <h3 className="text-2xl sm:text-3xl font-display font-extrabold uppercase text-white">
+              <h3 className="text-2xl sm:text-3xl font-display font-extrabold uppercase text-slate-950">
                 {lang === 'en' ? 'Schedule Service / Inspection' : 'Προγραμματίστε Σέρβις ή Έλεγχο'}
               </h3>
-              <p className="text-xs sm:text-sm text-neutral-400 mt-1">
+              <p className="text-xs sm:text-sm text-slate-600 mt-1">
                 {lang === 'en'
                   ? 'Reserve your workshop bay at Omonoias 74b, Lemesos. We will confirm your timing promptly.'
                   : 'Κλείστε θέση στο συνεργείο μας στην Ομονοίας 74b. Θα επιβεβαιώσουμε άμεσα το ραντεβού.'}
@@ -166,7 +166,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               {/* Row 1: Name & Phone */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-medium text-neutral-300 mb-1">
+                  <label className="block text-xs font-bold text-slate-700 mb-1">
                     {lang === 'en' ? 'Full Name *' : 'Ονοματεπώνυμο *'}
                   </label>
                   <input
@@ -174,15 +174,15 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder={lang === 'en' ? 'e.g. Alex Georgiou' : 'π.χ. Αλέξανδρος Γεωργίου'}
-                    className={`w-full px-3.5 py-2.5 rounded-lg bg-neutral-900 border text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-amber-500 ${
-                      errors.name ? 'border-rose-500' : 'border-neutral-800'
+                    className={`w-full px-3.5 py-2.5 rounded-lg bg-slate-50 border text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white ${
+                      errors.name ? 'border-rose-500' : 'border-slate-200'
                     }`}
                   />
-                  {errors.name && <p className="text-[11px] text-rose-400 mt-1">{errors.name}</p>}
+                  {errors.name && <p className="text-[11px] text-rose-600 mt-1">{errors.name}</p>}
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-neutral-300 mb-1">
+                  <label className="block text-xs font-bold text-slate-700 mb-1">
                     {lang === 'en' ? 'Telephone Number *' : 'Τηλέφωνο Επικοινωνίας *'}
                   </label>
                   <input
@@ -190,18 +190,18 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     placeholder="+357 99 123456"
-                    className={`w-full px-3.5 py-2.5 rounded-lg bg-neutral-900 border text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-amber-500 font-mono ${
-                      errors.phone ? 'border-rose-500' : 'border-neutral-800'
+                    className={`w-full px-3.5 py-2.5 rounded-lg bg-slate-50 border text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white font-mono ${
+                      errors.phone ? 'border-rose-500' : 'border-slate-200'
                     }`}
                   />
-                  {errors.phone && <p className="text-[11px] text-rose-400 mt-1">{errors.phone}</p>}
+                  {errors.phone && <p className="text-[11px] text-rose-600 mt-1">{errors.phone}</p>}
                 </div>
               </div>
 
               {/* Row 2: Motorcycle Make & Model + Year */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div className="sm:col-span-2">
-                  <label className="block text-xs font-medium text-neutral-300 mb-1">
+                  <label className="block text-xs font-bold text-slate-700 mb-1">
                     {lang === 'en' ? 'Motorcycle Make & Model *' : 'Μάρκα & Μοντέλο Μοτοσυκλέτας *'}
                   </label>
                   <input
@@ -209,17 +209,17 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     value={formData.bikeMakeModel}
                     onChange={(e) => setFormData({ ...formData, bikeMakeModel: e.target.value })}
                     placeholder={lang === 'en' ? 'e.g. Yamaha R1, BMW R1250GS, T-Max 560' : 'π.χ. Yamaha R1, BMW R1250GS, T-Max 560'}
-                    className={`w-full px-3.5 py-2.5 rounded-lg bg-neutral-900 border text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-amber-500 ${
-                      errors.bikeMakeModel ? 'border-rose-500' : 'border-neutral-800'
+                    className={`w-full px-3.5 py-2.5 rounded-lg bg-slate-50 border text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white ${
+                      errors.bikeMakeModel ? 'border-rose-500' : 'border-slate-200'
                     }`}
                   />
                   {errors.bikeMakeModel && (
-                    <p className="text-[11px] text-rose-400 mt-1">{errors.bikeMakeModel}</p>
+                    <p className="text-[11px] text-rose-600 mt-1">{errors.bikeMakeModel}</p>
                   )}
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-neutral-300 mb-1">
+                  <label className="block text-xs font-bold text-slate-700 mb-1">
                     {lang === 'en' ? 'Year (Approx)' : 'Έτος'}
                   </label>
                   <input
@@ -227,20 +227,20 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     value={formData.bikeYear}
                     onChange={(e) => setFormData({ ...formData, bikeYear: e.target.value })}
                     placeholder="2021"
-                    className="w-full px-3.5 py-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-amber-500 font-mono"
+                    className="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 border border-slate-200 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white font-mono"
                   />
                 </div>
               </div>
 
               {/* Service Selection */}
               <div>
-                <label className="block text-xs font-medium text-neutral-300 mb-1">
+                <label className="block text-xs font-bold text-slate-700 mb-1">
                   {lang === 'en' ? 'Desired Service Category' : 'Επιλογή Υπηρεσίας'}
                 </label>
                 <select
                   value={formData.selectedService}
                   onChange={(e) => setFormData({ ...formData, selectedService: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-sm text-white focus:outline-none focus:border-amber-500"
+                  className="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 border border-slate-200 text-sm text-slate-900 focus:outline-none focus:border-amber-500 focus:bg-white"
                 >
                   {SERVICES_LIST.map((srv) => (
                     <option key={srv.id} value={srv.id}>
@@ -259,30 +259,30 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               {/* Preferred Date & Time */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-medium text-neutral-300 mb-1">
+                  <label className="block text-xs font-bold text-slate-700 mb-1">
                     {lang === 'en' ? 'Preferred Date (Mon–Sat) *' : 'Επιθυμητή Ημερομηνία (Δευ–Σαβ) *'}
                   </label>
                   <input
                     type="date"
                     value={formData.preferredDate}
                     onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
-                    className={`w-full px-3.5 py-2.5 rounded-lg bg-neutral-900 border text-sm text-white focus:outline-none focus:border-amber-500 ${
-                      errors.preferredDate ? 'border-rose-500' : 'border-neutral-800'
+                    className={`w-full px-3.5 py-2.5 rounded-lg bg-slate-50 border text-sm text-slate-900 focus:outline-none focus:border-amber-500 focus:bg-white ${
+                      errors.preferredDate ? 'border-rose-500' : 'border-slate-200'
                     }`}
                   />
                   {errors.preferredDate && (
-                    <p className="text-[11px] text-rose-400 mt-1">{errors.preferredDate}</p>
+                    <p className="text-[11px] text-rose-600 mt-1">{errors.preferredDate}</p>
                   )}
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-neutral-300 mb-1">
+                  <label className="block text-xs font-bold text-slate-700 mb-1">
                     {lang === 'en' ? 'Preferred Slot' : 'Επιθυμητή Ώρα'}
                   </label>
                   <select
                     value={formData.preferredTime}
                     onChange={(e) => setFormData({ ...formData, preferredTime: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-sm text-white focus:outline-none focus:border-amber-500 font-mono"
+                    className="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 border border-slate-200 text-sm text-slate-900 focus:outline-none focus:border-amber-500 focus:bg-white font-mono"
                   >
                     <option value="08:30">08:30 (Morning Drop-off)</option>
                     <option value="10:00">10:00</option>
@@ -295,7 +295,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
               {/* Symptoms / Notes */}
               <div>
-                <label className="block text-xs font-medium text-neutral-300 mb-1">
+                <label className="block text-xs font-bold text-slate-700 mb-1">
                   {lang === 'en' ? 'Symptoms, Specific Work or Notes' : 'Περιγραφή Προβλήματος / Σημειώσεις'}
                 </label>
                 <textarea
@@ -307,22 +307,22 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                       ? 'e.g. Fork oil leaking, noisy valvetrain, need fresh Motul 300V oil and spark plugs.'
                       : 'π.χ. Διαρροή λαδιού από το πιρούνι, θόρυβος στις βαλβίδες, ανάγκη για λάδια Motul 300V.'
                   }
-                  className="w-full px-3.5 py-2 rounded-lg bg-neutral-900 border border-neutral-800 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-amber-500"
+                  className="w-full px-3.5 py-2 rounded-lg bg-slate-50 border border-slate-200 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white"
                 />
               </div>
 
               {/* Submit Buttons */}
-              <div className="pt-4 border-t border-neutral-800 flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-3">
+              <div className="pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-3">
                 <button
                   type="button"
                   onClick={onClose}
-                  className="px-4 py-2.5 text-xs font-medium text-neutral-400 hover:text-white rounded-lg transition-colors cursor-pointer"
+                  className="px-4 py-2.5 text-xs font-semibold text-slate-600 hover:text-slate-950 rounded-lg transition-colors cursor-pointer"
                 >
                   {lang === 'en' ? 'Cancel' : 'Ακύρωση'}
                 </button>
                 <button
                   type="submit"
-                  className="px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-neutral-950 bg-amber-500 hover:bg-amber-400 rounded-lg transition-colors shadow-md cursor-pointer"
+                  className="px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-slate-950 bg-amber-500 hover:bg-amber-400 rounded-lg transition-colors shadow-md shadow-amber-500/20 cursor-pointer"
                 >
                   {lang === 'en' ? 'Submit Booking Request' : 'Αποστολή Αιτήματος'}
                 </button>
@@ -332,15 +332,15 @@ export const BookingModal: React.FC<BookingModalProps> = ({
         ) : (
           /* Confirmation Screen */
           <div className="text-center py-6 space-y-6">
-            <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mx-auto">
+            <div className="w-16 h-16 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 mx-auto">
               <CheckCircle className="w-8 h-8" />
             </div>
 
             <div>
-              <h3 className="text-2xl font-display font-extrabold uppercase text-white mb-2">
+              <h3 className="text-2xl font-display font-extrabold uppercase text-slate-950 mb-2">
                 {lang === 'en' ? 'Booking Request Registered' : 'Το Αίτημα Καταχωρήθηκε'}
               </h3>
-              <p className="text-sm text-neutral-300 max-w-md mx-auto leading-relaxed">
+              <p className="text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
                 {lang === 'en'
                   ? `Thank you, ${formData.name}. We have reserved your provisional slot for ${formData.bikeMakeModel} on ${formData.preferredDate} at ${formData.preferredTime}.`
                   : `Ευχαριστούμε, ${formData.name}. Καταχωρήθηκε η προσωρινή κράτηση για ${formData.bikeMakeModel} στις ${formData.preferredDate} και ώρα ${formData.preferredTime}.`}
@@ -348,8 +348,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
             </div>
 
             {/* Quick Actions: WhatsApp & Calendar Download */}
-            <div className="p-4 rounded-xl bg-neutral-900 border border-neutral-800 max-w-lg mx-auto space-y-3">
-              <div className="text-xs font-mono uppercase tracking-wider text-amber-500 font-semibold">
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 max-w-lg mx-auto space-y-3">
+              <div className="text-xs font-mono uppercase tracking-wider text-amber-600 font-bold">
                 {lang === 'en' ? 'Instant Confirmation Options' : 'Άμεσες Ενέργειες'}
               </div>
 
@@ -358,7 +358,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   href={composeWhatsAppUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold uppercase tracking-wider transition-colors"
+                  className="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold uppercase tracking-wider transition-colors shadow-xs"
                 >
                   <MessageSquare className="w-4 h-4" />
                   <span>{lang === 'en' ? 'Send via WhatsApp' : 'Αποστολή σε WhatsApp'}</span>
@@ -367,20 +367,20 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 <button
                   type="button"
                   onClick={downloadCalendarFile}
-                  className="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-neutral-200 text-xs font-semibold uppercase tracking-wider transition-colors cursor-pointer"
+                  className="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg bg-white hover:bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider border border-slate-200 transition-colors cursor-pointer shadow-xs"
                 >
-                  <Download className="w-4 h-4 text-amber-400" />
+                  <Download className="w-4 h-4 text-amber-600" />
                   <span>{lang === 'en' ? 'Add to Calendar' : 'Προσθήκη Ημερολογίου'}</span>
                 </button>
               </div>
             </div>
 
-            <div className="text-xs text-neutral-400 flex items-center justify-center gap-2">
-              <Phone className="w-3.5 h-3.5 text-amber-500" />
+            <div className="text-xs text-slate-600 flex items-center justify-center gap-2">
+              <Phone className="w-3.5 h-3.5 text-amber-600" />
               <span>{lang === 'en' ? 'Need immediate assistance?' : 'Επείγουσα επισκευή;'}</span>
               <a
                 href={`tel:${WORKSHOP_INFO.phoneGreekRaw}`}
-                className="text-amber-400 font-mono font-medium hover:underline"
+                className="text-amber-600 font-mono font-bold hover:underline"
               >
                 {WORKSHOP_INFO.phoneGreek}
               </a>
@@ -390,7 +390,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               <button
                 type="button"
                 onClick={onClose}
-                className="px-6 py-2 text-xs font-semibold uppercase tracking-wider text-neutral-400 hover:text-white transition-colors cursor-pointer"
+                className="px-6 py-2 text-xs font-bold uppercase tracking-wider text-slate-600 hover:text-slate-950 transition-colors cursor-pointer"
               >
                 {lang === 'en' ? 'Close Window' : 'Κλείσιμο Παραθύρου'}
               </button>
