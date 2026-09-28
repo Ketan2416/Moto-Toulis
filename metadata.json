@@ -1,0 +1,6 @@
+{
+  "name": "Moto Toulis | Motorcycle Repair & Custom Workshop",
+  "description": "Specialized motorcycle mechanic and custom performance workshop in Limassol, Cyprus. Diagnostics, engine rebuilds, suspension tuning, periodic maintenance, and custom builds.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
